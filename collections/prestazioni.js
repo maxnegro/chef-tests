@@ -1,6 +1,5 @@
 Prestazioni = new Meteor.Collection('prestazioni');
 
-
 if (Meteor.isServer) {
   Prestazioni.allow({
     insert: function (userId, doc) {
@@ -15,6 +14,7 @@ if (Meteor.isServer) {
       return true;
     }
   });
+
   /*
   Prestazioni.deny({
   insert: function (userId, doc) {
@@ -32,7 +32,7 @@ return true;
 */
 }
 
-Prestazioni.attachSchema(new SimpleSchema({
+let PrestazioniSchema = new SimpleSchema({
   nome: {
     type: String,
     label: "Prestazione",
@@ -47,4 +47,6 @@ Prestazioni.attachSchema(new SimpleSchema({
       }
     }
   }
-}));
+});
+
+Prestazioni.attachSchema(PrestazioniSchema);
