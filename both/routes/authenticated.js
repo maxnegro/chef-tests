@@ -16,9 +16,9 @@ authenticatedRoutes.route( '/', {
   }
 });
 
-authenticatedRoutes.route( '/dashboard', {
-  name: 'dashboard',
+authenticatedRoutes.route( '/admin', {
+  name: 'admin',
   action() {
-    BlazeLayout.render( 'default', { yield: 'dashboard' } );
+    BlazeLayout.render( 'default', { yield: 'admin' } );
   }
 });
