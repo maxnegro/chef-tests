@@ -1,36 +1,48 @@
 Prestazioni = new Meteor.Collection('prestazioni');
 
-if (Meteor.isServer) {
-  Prestazioni.allow({
-    insert: function (userId, doc) {
-      return true;
-    },
-
-    update: function (userId, doc, fieldNames, modifier) {
-      return true;
-    },
-
-    remove: function (userId, doc) {
-      return true;
-    }
-  });
-
-  /*
-  Prestazioni.deny({
-  insert: function (userId, doc) {
-  return true;
-},
-
-update: function (userId, doc, fieldNames, modifier) {
-return true;
-},
-
-remove: function (userId, doc) {
-return true;
-}
+Prestazioni.allow({
+  insert: () => false,
+  update: () => false,
+  remove: () => false
 });
-*/
-}
+
+Prestazioni.deny({
+  insert: () => true,
+  update: () => true,
+  remove: () => true
+});
+
+// if (Meteor.isServer) {
+//   Prestazioni.allow({
+//     insert: function (userId, doc) {
+//       return true;
+//     },
+//
+//     update: function (userId, doc, fieldNames, modifier) {
+//       return true;
+//     },
+//
+//     remove: function (userId, doc) {
+//       return true;
+//     }
+//   });
+//
+//   /*
+//   Prestazioni.deny({
+//   insert: function (userId, doc) {
+//   return true;
+// },
+//
+// update: function (userId, doc, fieldNames, modifier) {
+// return true;
+// },
+//
+// remove: function (userId, doc) {
+// return true;
+// }
+// });
+// */
+// }
 
 let PrestazioniSchema = new SimpleSchema({
   nome: {
